@@ -1,34 +1,32 @@
-from django.shortcuts import render
-
 # Create your views here.
 from django.shortcuts import render
 from rest_framework import generics
-from RuteandoApi.models import Cities, Business
-from RuteandoApi.serializers import CitiesSerializer, BusinessSerializer
+from django.views import generic
+from django.views.generic import TemplateView
+from Api.models import * #traer modelo
+from Api.serializers import *#traer serializers
 
 # Create your views here.
 
-# class BusinessList(generics.ListCreateAPIView):
-#     queryset = Business.objects.all()
-#     serializer_class = BusinessSerializer
+class CiudadList(generics.ListCreateAPIView):  #get post
+    queryset = Ciudad.objects.all()
+    serializer_class = CiudadSerializer
 
-# class CitiesList(generics.ListCreateAPIView):
-#     queryset = Cities.objects.all()
-#     serializer_class = CitiesSerializer
+class CiudadDetail(generics.RetrieveDestroyAPIView):  #detele, put
+    queryset = Ciudad.objects.all()
+    serializer_class = CiudadSerializer
 
+class TipoList(generics.ListCreateAPIView):  #get post
+    queryset = Tipo.objects.all()
+    serializer_class = TipoSerializer
 
-#serializers
+class EmpresasList(generics.ListCreateAPIView):  #get post
+    queryset = Empresas.objects.all()
+    serializer_class = EmpresasSerializer
 
-# from rest_framework import serializers
-# from RuteandoApi.models import Cities, Business
+class ViewHome(generic.DetailView):
+    # queryset = Ciudad
+    template_name = 'consultas/home/'
 
-# class CitiesSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Cities
-#         fields = ('nombre','departamento','pais')
-
-# class BusinessSerializer(serializers.ModelSerializer):
-#     # ciudadid = serializers.PrimaryKeyRelatedField(many=True,read_only=True,allow_null=True)    
-#     class Meta:
-#         model = Business
-#         fields = ('nombre','direccion','ciudadid','telefono','descripcion')
+class ViewPrueba(TemplateView):
+    template_name = 'consultas/vista2/'

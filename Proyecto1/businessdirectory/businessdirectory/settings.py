@@ -56,7 +56,9 @@ ROOT_URLCONF = 'businessdirectory.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            "{}/templates".format(BASE_DIR) #que toma la carpeta templates que esta hubidada
+        ],  #en la raiz del proyecto (BASE_DIR)
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,7 +80,7 @@ WSGI_APPLICATION = 'businessdirectory.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'prueba',
+        'NAME': 'persona',
         'USER':'root',
         'PASSWORD': '',
         'HOST': '127.0.0.1', # Or an IP Address that your DB is hosted on
@@ -111,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Bogota'
 
 USE_I18N = True
 
@@ -123,4 +125,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
+# agregar direccion de los archivos estativos
+STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'), ]
 STATIC_URL = '/static/'

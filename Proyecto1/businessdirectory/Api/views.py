@@ -3,11 +3,13 @@ from django.shortcuts import render
 from rest_framework import generics
 from django.views import generic
 from django.views.generic import TemplateView
-from Api.models import * #traer modelo
-from Api.serializers import *#traer serializers
+from Api.models import *
+from Api.serializers import *
 
 # Create your views here.
-
+def index(request):
+   return render(request, 'api/index.html')
+   
 class CiudadList(generics.ListCreateAPIView):  #get post
     queryset = Ciudad.objects.all()
     serializer_class = CiudadSerializer

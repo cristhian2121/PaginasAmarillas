@@ -11,8 +11,6 @@ class HomeView(ListView):
     model = Ciudad
     template_name = 'api/index.html'
 
-
-
 def registration(request):
    return render(request, 'registration/registration_form.html')
 

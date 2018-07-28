@@ -1,5 +1,5 @@
 from django.conf.urls import url, include
-from Api.views import HomeView, 
+from Api.views import HomeView 
 from django.views.generic import TemplateView
 
 

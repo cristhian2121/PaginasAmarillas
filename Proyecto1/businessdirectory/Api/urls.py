@@ -5,6 +5,10 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^accounts/', include('registration.backends.hmac.urls')),
+     #url(r'^accounts/registration/', views.registration, name='registration'),
+
+
     url('home/', TemplateView.as_view(template_name='home.html')),
      url('ciudad/', views.CiudadList.as_view()),
     # path('ciudad/', views.CitiesList.as_view()),

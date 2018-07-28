@@ -1,14 +1,22 @@
 # Create your views here.
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, render_to_response
 from rest_framework import generics
 from django.views import generic
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 from Api.models import *
 from Api.serializers import *
 
 # Create your views here.
 def index(request):
-   return render(request, 'api/index.html')
+    posts = Ciudad.objects.all()
+    return render(request, 'api/index.html')
+
+class aa(ListView):
+    model = Ciudad
+    template_name = 'api/index.html'
+
+#def registration(request):
+#    return render(request, 'registration/registration_form.html')
    
 class CiudadList(generics.ListCreateAPIView):  #get post
     queryset = Ciudad.objects.all()

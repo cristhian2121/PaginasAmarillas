@@ -38,7 +38,7 @@
         <ul class="nav-menu">     
           <li><a href="{% url 'index' %}" class="ticker-txt"><span class="glyphicon glyphicon-home"> </span> Inicio</a></li>              
           <li><a href="" class="ticker-txt"><span class=" glyphicon glyphicon-list-alt"> </span> Anúnciate</a></li>
-          <li><a href="" class="ticker-txt"><span class="glyphicon glyphicon-user"> </span> Iniciar Sesión</a></li>				          				          
+          <li><a href="{% url 'auth_login'%}" class="ticker-txt"><span class="glyphicon glyphicon-user"> </span> Iniciar Sesión</a></li>				          				          
         </ul>
       </nav>
     </div>
@@ -51,6 +51,10 @@
   {% block contain %}
   {%endblock%}
 <!--end body-->	
+
+
+{% block content %}
+  {%endblock%}
   
       
       

@@ -28,11 +28,12 @@
 
                         <div class=" col-md-4">
                           <label class="" for="b_ciudad"></label>
-                            <select id="b_ciudad" name="b_ciudad" class="form-control">
-                              <option value="1">En que ciudad lo buscas?</option>
-                              <option value="2">Bogota</option>
-                              <option value="3">Cali</option>
-                              <option value="4">Medellín</option>
+                           <select id="b_ciudad" name="b_ciudad" class="form-control">
+                              {% if object_list %}
+                                {% for ciudad in object_list %}
+                                  <option>{{ciudad.ciudad}}</option>
+                                {% endfor %}
+                              {% endif %}
                             </select>
                         </div>
 
@@ -51,7 +52,7 @@
                         <fieldset class='col-md-12'>
                           <label class=" form-cols" for="b_buscar"></label>
                           <div >
-                            <button id="b_buscar" name="b_buscar" class="btn btn-primary">Buscar</button>
+                            <button id="b_buscar" name="b_buscar" class="btn btn-primary"><span class='glyphicon glyphicon-search'></span>Buscar</button>
                           </div>
                         </fieldset >
                         
@@ -98,7 +99,7 @@
                   </div>-->							
                 </div>
               </form>	
-              <p class="text-white"> <span>Search by tags:</span> Tecnology, Business, Consulting, IT Company, Design, Development</p>
+              
             </div>											
           </div>
         </div>

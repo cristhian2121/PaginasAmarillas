@@ -13,6 +13,7 @@ class HomeView(ListView):
     template_name = 'api/index.html'
 
     #Asi que modificamos el metodo que trae los modelos get_contex_data agregando el nuevo contexto
+    
     # mas info: http://django-book.blogspot.com/2012/11/vistas-genericas-basadas-en-clase.html
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)

@@ -41,10 +41,12 @@
                         <div class=" col-md-4">
                           <label class="" for="tipo"></label>
                             <select id="tipo" name="tipo" class="form-control">
-                              <option value="1">Que tipo de servicio buscas?</option>
-                              <option value="2">Hoteles</option>
-                              <option value="3">Ropa</option>
-                              <option value="4">Servicios</option>
+                              {% if type %}
+                              <!--Aqui ahora pongo el nombre del otro contexto "type"-->
+                                {% for type in type %} 
+                                  <option>{{type.nombre}}</option>
+                                {% endfor %}
+                              {% endif %}
                             </select>
                         </div>
                         

@@ -2,14 +2,31 @@
 from django.shortcuts import render, get_object_or_404, render_to_response
 from rest_framework import generics
 from django.views import generic
-from django.views.generic import TemplateView, ListView
-from Api.models import Ciudad
+from django.views.generic import TemplateView, ListView, DetailView 
+from Api.models import Ciudad, Tipo
 # from Api.serializers import *
 
 # Create your views here.
-class HomeView(ListView):
-    model = Ciudad
+class HomeView(ListView):    
+    context_object_name = 'home'  
+    model = Ciudad #las vistas basadas en clase solo traen 1 modelo por defecto
     template_name = 'api/index.html'
+
+    #Asi que modificamos el metodo que trae los modelos get_contex_data agregando el nuevo contexto
+    # mas info: http://django-book.blogspot.com/2012/11/vistas-genericas-basadas-en-clase.html
+    def get_context_data(self, **kwargs):
+        context = super(HomeView, self).get_context_data(**kwargs)
+        context['type'] = Tipo.objects.all()
+        return context
+    
+
+    # def get_context_data(self, **kwargs):
+    #     context = super(HomeView,self).get_context_data(**kwargs)
+    #     if 'model' not in context:
+    #         context['model'] = self.model(request = self.request)
+            
+
+    
 
 def registration(request):
    return render(request, 'registration/registration_form.html')

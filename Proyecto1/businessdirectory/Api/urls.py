@@ -4,8 +4,12 @@ from django.views.generic import TemplateView
 
 
 urlpatterns = [
-    url('', HomeView.as_view(), name='index'),
+    #agrego el contexto en la url (por que aun no se jeje)
+    url('', HomeView.as_view(context_object_name="type"), name='index'),
     url(r'^accounts/', include('registration.backends.hmac.urls')),
+
+
+
      #url(r'^accounts/registration/', views.registration, name='registration'),
 
 

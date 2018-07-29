@@ -6,7 +6,6 @@ from django.views.generic import TemplateView, ListView, DetailView
 from Api.models import Ciudad, Tipo
 # from Api.serializers import *
 
-# Create your views here.
 class HomeView(ListView):    
     context_object_name = 'home'  
     model = Ciudad #las vistas basadas en clase solo traen 1 modelo por defecto
@@ -45,6 +44,3 @@ def registration(request):
 # class ViewHome(generic.DetailView):
 #     # queryset = Ciudad
 #     template_name = 'consultas/home/'
-
-# class ViewPrueba(TemplateView):
-#     template_name = 'consultas/vista2/'

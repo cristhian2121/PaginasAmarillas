@@ -17,15 +17,7 @@ class HomeView(ListView):
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
         context['type'] = Tipo.objects.all()
-        return context    
-
-    # def get_context_data(self, **kwargs):
-    #     context = super(HomeView,self).get_context_data(**kwargs)
-    #     if 'model' not in context:
-    #         context['model'] = self.model(request = self.request)
-            
-
-    
+        return context            
 
 def registration(request):
    return render(request, 'registration/registration_form.html')

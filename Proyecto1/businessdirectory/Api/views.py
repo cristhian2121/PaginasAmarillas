@@ -17,8 +17,7 @@ class HomeView(ListView):
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
         context['type'] = Tipo.objects.all()
-        return context
-    
+        return context    
 
     # def get_context_data(self, **kwargs):
     #     context = super(HomeView,self).get_context_data(**kwargs)

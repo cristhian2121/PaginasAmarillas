@@ -18,7 +18,7 @@
                   <form >
                     <fieldset class='col-md-12'>
                       <div class="col-md-3"></div>
-                      <!--For search-->
+                      <!--For search kr-->
                       <div class=" col-md-6">
                         <label class=" form-cols" for="busqueda"></label>
                         <input id="busqueda" name="busqueda" type="search" placeholder="Que estas buscando?" class="form-control input-md" required="">
@@ -41,9 +41,16 @@
                         <div class=" col-md-4">
                           <label class="" for="tipo"></label>
                             <select id="tipo" name="tipo" class="form-control">
+<<<<<<< HEAD
                               {% if object_list %}
                                 {% for tipo in type %}
                                   <option>{{tipo.nombre}}</option>
+=======
+                              {% if type %}
+                              <!--Aqui ahora pongo el nombre del otro contexto "type" falta que por defeto no tome ninguna y filtre eso mas alla je-->
+                                {% for type in type %} 
+                                  <option>{{type.nombre}}</option>
+>>>>>>> master
                                 {% endfor %}
                               {% endif %}
                             </select>

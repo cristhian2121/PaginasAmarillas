@@ -6,17 +6,17 @@ from django.views.generic import TemplateView, ListView, DetailView
 from Api.models import Ciudad, Tipo
 # from Api.serializers import *
 
-class HomeView(ListView):    
-    context_object_name = 'home'  
+class index(ListView):    
+    context_object_name = 'type' 
     model = Ciudad #las vistas basadas en clase solo traen 1 modelo por defecto
     template_name = 'api/index.html'
 
     #Asi que modificamos el metodo que trae los modelos get_contex_data agregando el nuevo contexto
     # mas info: http://django-book.blogspot.com/2012/11/vistas-genericas-basadas-en-clase.html
     def get_context_data(self, **kwargs):
-        context = super(HomeView, self).get_context_data(**kwargs)
+        context = super(index, self).get_context_data(**kwargs)
         context['type'] = Tipo.objects.all()
-        return context            
+        return context          
 
 def registration(request):
    return render(request, 'registration/registration_form.html')

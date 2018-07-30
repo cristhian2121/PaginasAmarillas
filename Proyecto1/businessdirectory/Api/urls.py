@@ -1,11 +1,11 @@
 from django.conf.urls import url, include
-from Api.views import HomeView 
+from Api.views import *
 from django.views.generic import TemplateView
 
 
 urlpatterns = [
     #agrego el contexto en la url (por que aun no se jeje)
-    url('', HomeView.as_view(context_object_name="type"), name='index'),
+    url(r'^$', index.as_view(context_object_name="type"), name='index'),
     url(r'^accounts/', include('registration.backends.hmac.urls')),
 
 

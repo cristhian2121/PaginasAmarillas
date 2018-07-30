@@ -5,11 +5,7 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     #agrego el contexto en la url (por que aun no se jeje)
-<<<<<<< HEAD
     url(r'^$', index.as_view(context_object_name="type"), name='index'),
-=======
-    url('', HomeView.as_view(context_object_name="type"), name='index'),
->>>>>>> master
     url(r'^accounts/', include('registration.backends.hmac.urls')),
 
 
